@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener {
             rollDice()
+            val toast = Toast.makeText(this, "Rolou o dado!", Toast.LENGTH_SHORT).show()
 
         }
 
@@ -29,13 +30,14 @@ class MainActivity : AppCompatActivity() {
         val diceRoll = dice.roll()
         val diceImage: ImageView = findViewById(R.id.imageView)
         val drawableResource = when (diceRoll) {
-            1 -> R.drawable.dados
-            2 -> R.drawable.dado2
-            3 -> R.drawable.dado3
-            4 -> R.drawable.dado4
-            5 -> R.drawable.dado5
-            else -> R.drawable.dado6
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
         }
+        diceImage.setImageResource(drawableResource)
             diceImage.contentDescription = diceRoll.toString()
         }
     }
